@@ -4,7 +4,7 @@ import { getOptions } from "loader-utils";
 import { validate } from "schema-utils";
 
 import NodeTargetPlugin from "webpack/lib/node/NodeTargetPlugin";
-import SingleEntryPlugin from "webpack/lib/SingleEntryPlugin";
+import EntryPlugin from "webpack/lib/EntryPlugin";
 import WebWorkerTemplatePlugin from "webpack/lib/webworker/WebWorkerTemplatePlugin";
 import ExternalsPlugin from "webpack/lib/ExternalsPlugin";
 
@@ -93,7 +93,7 @@ export function pitch(request) {
     ).apply(workerContext.compiler);
   }
 
-  new SingleEntryPlugin(
+  new EntryPlugin(
     this.context,
     `!!${request}`,
     path.parse(this.resourcePath).name
